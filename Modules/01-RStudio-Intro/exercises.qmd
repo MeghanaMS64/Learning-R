@@ -34,8 +34,7 @@ celsius2kelvin
 
 <!-- Challenge 1 answer begin -->
 
--   Valid
--   Invalid
+min_height - Valid max.height - Invalid (contains a dot) \_age - Valid .mass - Valid MaxLength - Valid min-length - Invalid (contains a hyphen) 2widths - Invalid (starts with a number) celsius2kelvin - Valid
 
 <!-- Challenge 1 answer end -->
 
@@ -52,6 +51,8 @@ age <- age - 20
 
 <!-- Challenge 2 answer begin -->
 
+mass \<- 47.5 \# mass = 47.5 age \<- 122 \# age = 122 mass \<- mass \* 2.3 \# mass = 109.25 (47.5 \* 2.3) age \<- age - 20 \# age = 102
+
 <!-- Challenge 2 answer end -->
 
 #### Challenge 3
@@ -62,6 +63,8 @@ Run the code from the previous challenge, and write a command to compare `mass` 
 
 ```{r}
 # comparison code goes here
+mass > age  # This will return TRUE if mass is larger than age, otherwise FALSE
+
 ```
 
 <!-- Challenge 3 answer end -->
@@ -74,6 +77,7 @@ Clean up your working environment by deleting the mass and age variables.
 
 ```{r}
 # code goes here
+rm(mass, age)
 ```
 
 <!-- Challenge 4 answer end -->
@@ -85,10 +89,22 @@ Install the following packages: `ggplot2`, `dplyr`, `gapminder`
 <!-- Challenge 5 answer begin -->
 
 ```{r}
-# this will fail if the required packages are not installed
+# Install packages if not already installed
+if (!requireNamespace("ggplot2", quietly = TRUE)) {
+  install.packages("ggplot2")
+}
+if (!requireNamespace("dplyr", quietly = TRUE)) {
+  install.packages("dplyr")
+}
+if (!requireNamespace("gapminder", quietly = TRUE)) {
+  install.packages("gapminder")
+}
+
+# Load the packages
 library(ggplot2)
 library(dplyr)
 library(gapminder)
+
 ```
 
 <!-- Challenge 5 answer end -->

@@ -26,7 +26,11 @@ c(1, 2, 'f')
 
 <!-- Challenge 1 answer begin -->
 
-Your answer goes here
+c(1, 2, 3) will create a numeric vector containing three numeric values.
+
+c('d', 'e', 'f') will create a character vector containing three character values.
+
+c(1, 2, 'f') will create a character vector because R coerces all elements to the most flexible data type when different types are combined, in this case, character.
 
 <!-- Challenge 1 answer end -->
 
@@ -36,7 +40,11 @@ Look at the help for the `paste` function. You will need to use it later. What's
 
 <!-- Challenge 2 answer begin -->
 
-Your answer goes here
+sep is an argument in the paste function that specifies the character string to separate the input vectors. It determines what separates the elements when you paste them together. For example, paste("a", "b", sep = "-") will result in "a-b".
+
+collapse is an argument in the paste function that specifies the character string to concatenate the input vectors. It determines what is used to concatenate all the elements into a single string. For example, paste(c("a", "b", "c"), collapse = "-") will result in "a-b-c".
+
+In summary, sep is used to separate elements within a vector, while collapse is used to concatenate elements into a single string.
 
 <!-- Challenge 2 answer end -->
 
@@ -52,6 +60,6 @@ Use `??"read table"` to look up functions related to reading in tabular data.
 
 <!-- Challenge 3 answer begin -->
 
-Your answer goes here
+data \<- read.table("file.txt", sep = "\\t", dec = ".")
 
 <!-- Challenge 3 answer end -->

@@ -30,23 +30,24 @@ Let's imagine that 1 cat year is equivalent to 7 human years.
 <!-- Challenge 1 answer begin -->
 
 ```{r}
-# load cats data (make sure you are in the correct working directory)
+# Load the cats data (make sure you are in the correct working directory)
 cats <- read.csv('../04-Data-Structures/data/feline-data_v2.csv')
 cats$weight[4] <- 2.35
 cats$weight <- as.numeric(cats$weight)
-cats$age <- c(2,3,5,1)
+cats$age <- c(2, 3, 5, 1)
 
-# create human_age
-## your code goes here
+# 1. Create a vector called human_age by multiplying cats$age by 7
+human_age <- cats$age * 7
 
-# convert human_age to a factor
-## your code goes here
+# 2. Convert human_age to a factor
+human_age <- as.factor(human_age)
 
-# convert human_age back to a numeric vector
-## your code goes here
+# 3. Convert human_age back to a numeric vector using as.numeric() and divide by 7 to get the original ages back
+human_age <- as.numeric(human_age) / 7
+
 ```
 
-Explanation: ...
+Explanation: We initially multiplied ages by 7 to get human ages and converted them to a factor. When we converted them back to numeric, R assigned integer values to the levels of the factor. Dividing by 7 gives us the original ages.
 
 <!-- Challenge 1 answer end -->
 
@@ -71,16 +72,30 @@ Then use `rbind` to add an entry for someone you work with. Finally, use `cbind`
 <!-- Challenge 2 answer begin -->
 
 ```{r}
-# create people
-people <- ## your code goes here ##
-  
-# add a team member
-## your code goes here ##
-  
-# add coffee break
-## your code goes here ##
-  
+# Create a data frame for yourself
+yourself <- data.frame(
+  first_name = "Meghana",
+  last_name = "Sripathi",
+  lucky_number = 7,
+  coffee_break = TRUE
+)
+
+# Create a data frame for a team member
+team_member <- data.frame(
+  first_name = "TeamMemberFirstName",
+  last_name = "TeamMemberLastName",
+  lucky_number = 3,
+  coffee_break = FALSE
+)
+
+# Combine the two data frames using rbind
+people <- rbind(yourself, team_member)
+
+# Add a column with answers to the coffee break question
+people$coffee_break_answer <- c("Yes", "No")
+
 people
+
 ```
 
 <!-- Challenge 2 answer end -->
@@ -97,7 +112,14 @@ Searching for observations specifically in the middle isn't too hard, but we cou
 library(gapminder)
 data(gapminder)
 
-# your commands go here
+# Check the last few lines
+tail(gapminder)
+
+# Check some lines in the middle (e.g., lines 10 to 15)
+gapminder[10:15, ]
+
+random_rows <- gapminder[sample(nrow(gapminder), 5), ]
+
 ```
 
 <!-- Challenge 3 answer end -->
@@ -112,6 +134,9 @@ Run the script using the `source` function, using the file path as its argument.
 
 ```{r}
 # load gapminder by sourcing your script here
+
+source("scripts/load_data.R")
+
 ```
 
 <!-- Challenge 4 answer end -->
@@ -127,5 +152,21 @@ str(gapminder)
 <!-- Challenge 5 answer begin -->
 
 Explain the output of `str(gapminder)` here.
+
+gapminder is a data frame with 1704 observations and 6 variables.
+
+The variables are:
+
+-   country: A factor with 142 levels representing the countries in the dataset.
+
+-   continent: A factor with 5 levels representing the continents.
+
+-   year: An integer vector representing the years.
+
+-   lifeExp: A numeric vector representing life expectancy.
+
+-   pop: A numeric vector representing population.
+
+-   gdpPercap: A numeric vector representing GDP per capita.
 
 <!-- Challenge 5 answer end -->
